@@ -1,0 +1,130 @@
+{
+  "option": {
+    "expiry_at": "2026-12-04T21:00:00Z",
+    "exercise_style": "European",
+    "settlement": "cash",
+    "quantity": 1,
+    "strike": "100",
+    "right": "C",
+    "premium": "0.20",
+    "rate": "0.03",
+    "dividend_yield": "0",
+    "entry_fee_dollars": "0.65"
+  },
+  "latency_seconds": "0.15",
+  "max_quote_age_seconds": "2",
+  "hedge_fee_per_share": "0.01",
+  "max_abs_stock_shares": 100,
+  "band_shares": 12,
+  "quotes": [
+    {
+      "observed_at": "2026-12-04T20:30:00.000Z",
+      "received_at": "2026-12-04T20:30:00.100Z",
+      "iv_known_at": "2026-12-04T20:30:00.100Z",
+      "bid": "99.97",
+      "ask": "100.03",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:33:00.000Z",
+      "received_at": "2026-12-04T20:33:00.100Z",
+      "iv_known_at": "2026-12-04T20:33:00.100Z",
+      "bid": "100.12",
+      "ask": "100.18",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:36:00.000Z",
+      "received_at": "2026-12-04T20:36:00.100Z",
+      "iv_known_at": "2026-12-04T20:36:00.100Z",
+      "bid": "99.87",
+      "ask": "99.93",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:39:00.000Z",
+      "received_at": "2026-12-04T20:39:00.100Z",
+      "iv_known_at": "2026-12-04T20:39:00.100Z",
+      "bid": "100.07",
+      "ask": "100.13",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:42:00.000Z",
+      "received_at": "2026-12-04T20:42:00.100Z",
+      "iv_known_at": "2026-12-04T20:42:00.100Z",
+      "bid": "99.82",
+      "ask": "99.88",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:45:00.000Z",
+      "received_at": "2026-12-04T20:45:00.100Z",
+      "iv_known_at": "2026-12-04T20:45:00.100Z",
+      "bid": "100.07",
+      "ask": "100.13",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:48:00.000Z",
+      "received_at": "2026-12-04T20:48:00.100Z",
+      "iv_known_at": "2026-12-04T20:48:00.100Z",
+      "bid": "99.92",
+      "ask": "99.98",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:51:00.000Z",
+      "received_at": "2026-12-04T20:51:00.100Z",
+      "iv_known_at": "2026-12-04T20:51:00.100Z",
+      "bid": "100.17",
+      "ask": "100.23",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:54:00.000Z",
+      "received_at": "2026-12-04T20:54:00.100Z",
+      "iv_known_at": "2026-12-04T20:54:00.100Z",
+      "bid": "99.89",
+      "ask": "99.95",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    },
+    {
+      "observed_at": "2026-12-04T20:57:00.000Z",
+      "received_at": "2026-12-04T20:57:00.100Z",
+      "iv_known_at": "2026-12-04T20:57:00.100Z",
+      "bid": "100.11",
+      "ask": "100.17",
+      "bid_size": 200,
+      "ask_size": 200,
+      "iv": "0.25"
+    }
+  ],
+  "settlement": {
+    "observed_at": "2026-12-04T21:00:00Z",
+    "received_at": "2026-12-04T21:00:00.100Z",
+    "bid": "100.11",
+    "ask": "100.17",
+    "bid_size": 200,
+    "ask_size": 200,
+    "fixing": "100.14"
+  }
+}

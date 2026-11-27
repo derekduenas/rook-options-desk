@@ -1,0 +1,37 @@
+{
+  "quantity": 1,
+  "width": "5",
+  "entry_debit": "1.10",
+  "round_trip_fee_per_contract_dollars": "2",
+  "entry_at": "2026-11-27T15:40:00Z",
+  "scheduled_exit_at": "2026-12-03T20:15:00Z",
+  "last_execution_at": "2026-12-03T20:20:00Z",
+  "expiry_at": "2026-12-04T21:00:00Z",
+  "latency_seconds": ".15",
+  "max_quote_age_seconds": "1",
+  "target_fraction_of_max_profit": ".75",
+  "stop_fraction_of_max_loss": ".50",
+  "package_quotes": [
+    {
+      "observed_at": "2026-12-02T20:00:00Z",
+      "received_at": "2026-12-02T20:00:00.100Z",
+      "bid": "4.10",
+      "ask": "4.30",
+      "bid_size": 1
+    },
+    {
+      "observed_at": "2026-12-02T20:00:00.300Z",
+      "received_at": "2026-12-02T20:00:00.400Z",
+      "bid": "3.80",
+      "ask": "4.10",
+      "bid_size": 1
+    },
+    {
+      "observed_at": "2026-12-03T20:15:01Z",
+      "received_at": "2026-12-03T20:15:01.100Z",
+      "bid": "2.25",
+      "ask": "2.40",
+      "bid_size": 4
+    }
+  ]
+}

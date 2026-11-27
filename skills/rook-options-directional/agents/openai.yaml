@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rook Options Directional"
+  short_description: "Test stock direction and audit option entries"
+  default_prompt: "Use $rook-options-directional to check which flagged contracts hit."

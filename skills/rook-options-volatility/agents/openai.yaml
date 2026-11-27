@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rook Options Volatility"
+  short_description: "Analyze volatility surfaces, Greeks, and shocks"
+  default_prompt: "Use $rook-options-volatility to explain the impact of IV crush on this position."

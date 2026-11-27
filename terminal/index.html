@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Options Desk derivatives research terminal for spread payoff, evidence, and decision review.">
+  <title>Rook Trading Terminal</title>
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=">
+  <link rel="stylesheet" href="terminal.css">
+  <script src="workspace.js" defer></script>
+  <script src="terminal.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#workspace"><span class="logo" aria-hidden="true">R</span><span>Rook<small>Trading terminal</small></span></a>
+    <nav aria-label="Workspace">
+      <a href="#workspace" data-view="workspace"><span aria-hidden="true">◫</span> Trading terminal</a>
+      <a href="#overview" data-view="overview"><span aria-hidden="true">◫</span> Overview</a>
+      <a href="#decisions" data-view="decisions"><span aria-hidden="true">≡</span> Decision journal</a>
+      <a href="#intelligence" data-view="intelligence"><span aria-hidden="true">✧</span> Intelligence</a>
+      <a href="#scanner" id="scanner-nav" data-view="scanner" hidden><span aria-hidden="true">⊕</span> Opportunity scanner</a>
+      <a href="#directional" data-engine data-view="directional" hidden><span aria-hidden="true">↗</span> Directional</a>
+      <a href="#volatility" data-engine data-view="volatility" hidden><span aria-hidden="true">∿</span> Volatility</a>
+      <a href="#catalyst-engine" data-engine data-view="catalyst-engine" hidden><span aria-hidden="true">◈</span> Catalyst</a>
+      <a href="#intake" id="intake-nav" data-view="intake" hidden><span aria-hidden="true">⌁</span> Market intake</a>
+      <a href="#monitor" id="monitor-nav" data-view="monitor" hidden><span aria-hidden="true">◉</span> Research monitor</a>
+      <a href="#risk" id="risk-nav" data-view="risk" hidden><span aria-hidden="true">∿</span> Risk and validation</a>
+      <a href="#sources" data-view="sources"><span aria-hidden="true">◎</span> Data sources</a>
+      <a href="#architecture" data-view="architecture"><span aria-hidden="true">⋮</span> Architecture</a>
+    </nav>
+    <div class="sidebar-footer"><span class="status-dot"></span><span id="desk-mode">Local research<small>Read-only terminal</small></span></div>
+  </aside>
+
+  <main>
+    <header class="topbar"><span>Research workspace</span><div><span id="capture-time"></span><button id="refresh" type="button" aria-label="Refresh journal" title="Refresh journal">↻</button></div></header>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <div class="workspace" id="workspace" aria-busy="true">
+      <div class="title-line"><div><h1 id="title">Trading terminal</h1><p id="description">Market discovery, contract quotes, and paper spreads.</p></div><span class="mode">PAPER WORKSPACE</span></div>
+      <section id="trading-workspace" hidden aria-label="Trading terminal"></section>
+      <section id="command" class="command-panel" hidden aria-label="Desk readiness"></section>
+      <div id="metrics" class="metrics"></div>
+      <div id="detail" class="detail"></div>
+      <section id="journal" class="panel journal">
+        <div class="panel-head"><div><h2>Decision journal</h2><p>Frozen market snapshots and spread scenarios</p></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Filter ticker or setup" aria-label="Filter decisions"></label></div>
+        <div id="rows"></div>
+      </section>
+      <section id="sources" class="panel" hidden><div class="panel-head"><div><h2>Data sources</h2><p>Recorded feeds and receipt times</p></div></div><div id="source-list"></div></section>
+      <section id="engines" class="research-monitor" hidden aria-label="Research engine"></section>
+      <section id="scanner" class="research-monitor" hidden aria-label="Opportunity scanner"></section>
+      <section id="intake" class="research-monitor" hidden aria-label="Market intake"></section>
+      <section id="catalysts" hidden aria-label="Catalyst research results"></section>
+      <section id="earnings" class="earnings-lab" hidden aria-label="Registered earnings experiments"></section>
+      <section id="monitor" class="research-monitor" hidden aria-label="Research monitor"></section>
+      <section id="risk" class="research-monitor" hidden aria-label="Risk and validation"></section>
+      <section id="architecture" class="architecture" hidden aria-label="System architecture">
+        <div class="architecture-grid">
+          <article class="flow-panel flow-intake">
+            <div class="flow-heading"><div><h2>Market intake</h2><p>Stamp the evidence before the desk uses it.</p></div><a data-local-route href="#intake">View snapshot <span aria-hidden="true">↗</span></a></div>
+            <ul class="flow-sources"><li>Price and option chain</li><li>Regime and liquidity</li><li>News and releases</li></ul>
+            <a data-local-route href="#scanner">Open opportunity scanner <span aria-hidden="true">↗</span></a>
+          </article>
+          <div class="flow-connector" aria-hidden="true"><span></span></div>
+          <div class="flow-engines" aria-label="Three research engines">
+            <article class="flow-panel"><h2>Directional</h2><p>Test relative strength, trend, and flow against a fixed benchmark.</p><a data-local-route href="#directional">Open engine <span aria-hidden="true">↗</span></a></article>
+            <article class="flow-panel"><h2>Volatility</h2><p>Compare forecast variance with the chain. Stress skew, gamma, and time decay.</p><a data-local-route href="#volatility">Open engine <span aria-hidden="true">↗</span></a></article>
+            <article class="flow-panel"><h2>Catalyst</h2><p>Verify what happened and when. Measure the gap between expectations and outcomes.</p><a data-local-route href="#catalyst-engine">Open engine <span aria-hidden="true">↗</span></a></article>
+          </div>
+          <div class="flow-connector" aria-hidden="true"><span></span></div>
+          <article class="flow-panel flow-risk">
+            <div class="flow-heading"><div><h2>Shared decision gate</h2><p>Review the same contract and size against execution and portfolio limits.</p></div><a data-local-route href="#risk">View risk checks <span aria-hidden="true">↗</span></a></div>
+            <div class="flow-checks"><span>Executable entry and exit</span><span>Expected return and tail loss</span><span>Combined stress and assignment</span></div>
+          </article>
+          <div class="flow-connector" aria-hidden="true"><span></span></div>
+          <div class="flow-outcomes">
+            <article class="flow-panel"><h2>Pass on the trade</h2><p>Record the failed gate or missing evidence so the desk can learn from the rejection.</p></article>
+            <article class="flow-panel"><h2>Eligible for research review</h2><p>Freeze the decision and evaluate later quotes, paper fills, and markouts.</p><a data-local-route href="#monitor">Open research monitor <span aria-hidden="true">↗</span></a></article>
+          </div>
+        </div>
+        <aside class="architecture-rail" aria-label="Architecture principles">
+          <article class="flow-panel"><h2>Decision journal</h2><p>Every replay retains the observed time, receipt time, inputs, and assumptions.</p><a href="#decisions">Open journal <span aria-hidden="true">↗</span></a></article>
+          <article class="flow-panel"><h2>Evidence before scale</h2><p>Compare unseen results after costs. Keep synthetic rehearsals, historical replay, and observed paper outcomes distinct.</p><a href="#intelligence">Inspect cited research <span aria-hidden="true">↗</span></a></article>
+          <article class="flow-panel"><h2>Desk mode</h2><p id="published-at"></p></article>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,479 @@
+{
+  "net_liquidation_value_dollars": "10000",
+  "fractional_risk_scale": ".35",
+  "max_order_loss_fraction": ".04",
+  "max_combined_stress_fraction": ".12",
+  "portfolio": {
+    "as_of": "2026-11-27T15:40:00Z",
+    "underlyings": {
+      "DEMO": {
+        "spot": 100,
+        "rate": ".04",
+        "dividend_yield": 0
+      }
+    },
+    "positions": [],
+    "scenarios": [
+      {
+        "name": "Correlated selloff",
+        "at": "2026-11-27T17:00:00Z",
+        "spots": {
+          "DEMO": 94
+        },
+        "iv_shifts": {
+          "DEMO": ".1"
+        }
+      },
+      {
+        "name": "IV crush",
+        "at": "2026-11-27T17:00:00Z",
+        "spots": {
+          "DEMO": 101
+        },
+        "iv_shifts": {
+          "DEMO": "-.20"
+        }
+      }
+    ],
+    "risk_limits": {
+      "max_loss_from_mark_dollars": "1200",
+      "max_gross_assignment_cash_dollars": "0"
+    }
+  },
+  "available_loss_budget_dollars": "400",
+  "as_of": "2026-11-27T15:40:00Z",
+  "exit_at": "2026-12-03T20:15:00Z",
+  "underlying": "DEMO",
+  "expressions": [
+    {
+      "name": "100/103 call vertical",
+      "one_lot_candidate": {
+        "price_case": {
+          "as_of": "2026-11-27T15:40:00Z",
+          "contract": {
+            "symbol": "DEMO",
+            "expiry": "2026-12-04",
+            "right": "C",
+            "long_strike": "100",
+            "short_strike": "103"
+          },
+          "quantity": 1,
+          "price_tick": "0.05",
+          "round_trip_fees_per_contract_dollars": "2",
+          "exit_debit_bound_per_contract_dollars": "5",
+          "limits": {
+            "max_loss_dollars": "400",
+            "max_tail_loss_given_fill_dollars": "270",
+            "min_expected_net_dollars": "10",
+            "min_fill_probability": "0.25",
+            "tail_probability": "0.1",
+            "max_quote_age_seconds": "5"
+          },
+          "quote": {
+            "basis": "package",
+            "observed_at": "2026-11-27T15:39:59Z",
+            "received_at": "2026-11-27T15:39:59.5Z",
+            "bid": "1.00",
+            "ask": "1.20",
+            "ask_size": 3
+          }
+        },
+        "tested_limit": "1.05",
+        "candidate_positions": [
+          {
+            "kind": "option",
+            "symbol": "DEMO",
+            "quantity": 1,
+            "right": "C",
+            "strike": 100,
+            "expiry_at": "2026-12-04T21:00:00Z",
+            "exercise_style": "European",
+            "settlement": "cash",
+            "iv": ".30",
+            "entry_price": "3.10",
+            "entry_fee_dollars": "0.50",
+            "exit_fee_dollars": "0.50"
+          },
+          {
+            "kind": "option",
+            "symbol": "DEMO",
+            "quantity": -1,
+            "right": "C",
+            "strike": 103,
+            "expiry_at": "2026-12-04T21:00:00Z",
+            "exercise_style": "European",
+            "settlement": "cash",
+            "iv": ".30",
+            "entry_price": "2.05",
+            "entry_fee_dollars": "0.50",
+            "exit_fee_dollars": "0.50"
+          }
+        ]
+      },
+      "sizes": [
+        {
+          "quantity": 1,
+          "models": {
+            "baseline": {
+              "basis": "synthetic baseline",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".50",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 213
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 35
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            },
+            "adverse_selection": {
+              "basis": "synthetic adverse selection",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".45",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 200
+                },
+                {
+                  "probability": ".30",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 35
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            }
+          }
+        },
+        {
+          "quantity": 2,
+          "models": {
+            "baseline": {
+              "basis": "synthetic baseline",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".50",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 210
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 32
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            },
+            "adverse_selection": {
+              "basis": "synthetic adverse selection",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".45",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 197
+                },
+                {
+                  "probability": ".30",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 32
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            }
+          }
+        },
+        {
+          "quantity": 3,
+          "models": {
+            "baseline": {
+              "basis": "synthetic baseline",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".50",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 207
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 29
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            },
+            "adverse_selection": {
+              "basis": "synthetic adverse selection",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".45",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 194
+                },
+                {
+                  "probability": ".30",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 29
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "100/105 call vertical",
+      "one_lot_candidate": {
+        "price_case": {
+          "as_of": "2026-11-27T15:40:00Z",
+          "contract": {
+            "symbol": "DEMO",
+            "expiry": "2026-12-04",
+            "right": "C",
+            "long_strike": "100",
+            "short_strike": "105"
+          },
+          "quantity": 1,
+          "price_tick": "0.05",
+          "round_trip_fees_per_contract_dollars": "2",
+          "exit_debit_bound_per_contract_dollars": "5",
+          "limits": {
+            "max_loss_dollars": "400",
+            "max_tail_loss_given_fill_dollars": "270",
+            "min_expected_net_dollars": "10",
+            "min_fill_probability": "0.25",
+            "tail_probability": "0.1",
+            "max_quote_age_seconds": "5"
+          },
+          "quote": {
+            "basis": "package",
+            "observed_at": "2026-11-27T15:39:59Z",
+            "received_at": "2026-11-27T15:39:59.5Z",
+            "bid": "1.00",
+            "ask": "1.20",
+            "ask_size": 3
+          }
+        },
+        "tested_limit": "1.10",
+        "candidate_positions": [
+          {
+            "kind": "option",
+            "symbol": "DEMO",
+            "quantity": 1,
+            "right": "C",
+            "strike": 100,
+            "expiry_at": "2026-12-04T21:00:00Z",
+            "exercise_style": "European",
+            "settlement": "cash",
+            "iv": ".30",
+            "entry_price": "3.10",
+            "entry_fee_dollars": "0.50",
+            "exit_fee_dollars": "0.50"
+          },
+          {
+            "kind": "option",
+            "symbol": "DEMO",
+            "quantity": -1,
+            "right": "C",
+            "strike": 105,
+            "expiry_at": "2026-12-04T21:00:00Z",
+            "exercise_style": "European",
+            "settlement": "cash",
+            "iv": ".30",
+            "entry_price": "2.00",
+            "entry_fee_dollars": "0.50",
+            "exit_fee_dollars": "0.50"
+          }
+        ]
+      },
+      "sizes": [
+        {
+          "quantity": 1,
+          "models": {
+            "baseline": {
+              "basis": "synthetic baseline",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".50",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 228
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 50
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            },
+            "adverse_selection": {
+              "basis": "synthetic adverse selection",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".45",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 215
+                },
+                {
+                  "probability": ".30",
+                  "filled_contracts": 1,
+                  "exit_dollars_per_contract": 50
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            }
+          }
+        },
+        {
+          "quantity": 2,
+          "models": {
+            "baseline": {
+              "basis": "synthetic baseline",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".50",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 225
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 47
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            },
+            "adverse_selection": {
+              "basis": "synthetic adverse selection",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".45",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 212
+                },
+                {
+                  "probability": ".30",
+                  "filled_contracts": 2,
+                  "exit_dollars_per_contract": 47
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            }
+          }
+        },
+        {
+          "quantity": 3,
+          "models": {
+            "baseline": {
+              "basis": "synthetic baseline",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".50",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 222
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 44
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            },
+            "adverse_selection": {
+              "basis": "synthetic adverse selection",
+              "known_at": "2026-11-27T15:39:59Z",
+              "outcomes": [
+                {
+                  "probability": ".45",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 209
+                },
+                {
+                  "probability": ".30",
+                  "filled_contracts": 3,
+                  "exit_dollars_per_contract": 44
+                },
+                {
+                  "probability": ".25",
+                  "filled_contracts": 0,
+                  "exit_dollars_per_contract": 0
+                }
+              ],
+              "exit_at": "2026-12-03T20:15:00Z"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

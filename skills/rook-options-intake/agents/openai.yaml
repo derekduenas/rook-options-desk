@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rook Options Intake"
+  short_description: "Scan market regime, news, and option liquidity"
+  default_prompt: "Use $rook-options-intake to run the desk’s morning market intake."

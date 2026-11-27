@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rook Options Catalyst"
+  short_description: "Research earnings, macro, and corporate events"
+  default_prompt: "Use $rook-options-catalyst to prepare a research case for this macro release."

@@ -1,0 +1,59 @@
+{
+  "as_of": "2026-12-01T20:00:00Z",
+  "advanced_greeks": true,
+  "underlyings": {
+    "DEMO": {
+      "spot": 100,
+      "rate": ".04",
+      "dividend_yield": 0
+    }
+  },
+  "positions": [
+    {
+      "kind": "option",
+      "symbol": "DEMO",
+      "quantity": 1,
+      "right": "C",
+      "strike": 100,
+      "expiry_at": "2026-12-11T21:00:00Z",
+      "exercise_style": "European",
+      "settlement": "cash",
+      "iv": ".55",
+      "entry_price": "3.75",
+      "exit_fee_dollars": 1,
+      "exit_slippage_per_unit": ".05"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Stock up, IV crush",
+      "at": "2026-12-02T20:00:00Z",
+      "spots": {
+        "DEMO": 101
+      },
+      "iv_shifts": {
+        "DEMO": "-.20"
+      }
+    },
+    {
+      "name": "Upside gap",
+      "at": "2026-12-02T20:00:00Z",
+      "spots": {
+        "DEMO": 106
+      },
+      "iv_shifts": {
+        "DEMO": "-.15"
+      }
+    },
+    {
+      "name": "Downside gap, vol rises",
+      "at": "2026-12-02T20:00:00Z",
+      "spots": {
+        "DEMO": 95
+      },
+      "iv_shifts": {
+        "DEMO": ".12"
+      }
+    }
+  ]
+}

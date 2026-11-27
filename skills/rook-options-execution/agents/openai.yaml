@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rook Options Execution"
+  short_description: "Check fill evidence, entry limits, and risk"
+  default_prompt: "Use $rook-options-execution to check the executable price and risk of this spread."
